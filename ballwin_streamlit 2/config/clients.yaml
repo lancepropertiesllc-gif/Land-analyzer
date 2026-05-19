@@ -1,0 +1,68 @@
+# config/clients.yaml
+# ─────────────────────────────────────────────────────────────────────────────
+# Add a new client by copying one of the blocks below.
+# The dashboard login screen uses this file.
+# ─────────────────────────────────────────────────────────────────────────────
+
+clients:
+
+  consultant:
+    name: "Consultant View"
+    password: "admin2024"          # Change this!
+    role: "admin"                  # Sees all clients' data
+    color: "#1f2937"
+    logo: ""
+
+  builder_a:
+    name: "Ballwin Builder"
+    password: "builder2024"        # Change this!
+    role: "client"
+    color: "#1d4ed8"
+    logo: ""
+    criteria:
+      geography:
+        municipality: "Ballwin"
+        zips: ["63011", "63021"]
+        school_districts: ["ROCKWOOD"]
+      lot:
+        min_acres: 0.23
+        min_lot_width_ft: 100
+      price:
+        max_land_value_per_acre: 125000
+        no_cap_above_acres: 2.0
+      deal_types:
+        - "Vacant Land"
+        - "Teardown Candidate"
+        - "Large Lot"
+      scoring:
+        min_lead_score: 30
+        min_distress_score: 0
+        exclude_flood_zone: true
+        exclude_hoa_gov: true
+    contact:
+      name: "Your Name"
+      company: "Your Company"
+      phone: "(314) XXX-XXXX"
+      email: "you@yourcompany.com"
+
+  # ── Template for adding a new client ──────────────────────────────────────
+  # builder_b:
+  #   name: "Chesterfield Builder"
+  #   password: "chesterfield2024"
+  #   role: "client"
+  #   color: "#047857"
+  #   criteria:
+  #     geography:
+  #       municipality: "Chesterfield"
+  #       zips: ["63005", "63017"]
+  #       school_districts: ["PARKWAY"]
+  #     lot:
+  #       min_acres: 0.5
+  #       min_lot_width_ft: 75
+  #     price:
+  #       max_land_value_per_acre: 200000
+  #       no_cap_above_acres: 2.0
+  #     deal_types: ["Vacant Land"]
+  #     scoring:
+  #       min_lead_score: 40
+  #       exclude_flood_zone: true
