@@ -1,5 +1,5 @@
 # config/clients.yaml
-# âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+# -------------------------------------------------------------------------
 # Price cap logic:
 #   max_land_value:        hard dollar cap regardless of lot size
 #   max_per_acre:          per-acre cap (lot value / acres must be <= this)
@@ -8,17 +8,14 @@
 #
 # Use max_land_value for a simple flat budget.
 # Use max_per_acre + no_cap_above_acres for a scalable budget.
-# Both can be set together â the parcel must pass both.
-# âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-
+# Both can be set together - the parcel must pass both.
+# -------------------------------------------------------------------------
 clients:
-
   consultant:
     name: "Consultant View"
     password: "admin2024"
     role: "admin"
     color: "#1f2937"
-
   builder_a:
     name: "Ballwin Builder"
     password: "builder2024"
@@ -33,10 +30,10 @@ clients:
         min_acres: 0.23
         min_lot_width_ft: 100
       price:
-        max_land_value: 500000        # hard cap â never pay more than this
-        max_per_acre: 125000          # per-acre cap â scales with lot size
-        no_cap_above_acres: 2.0       # no per-acre cap for 2+ acre lots
-        min_land_value: 1000          # exclude data errors / $0 parcels
+        max_land_value: 500000
+        max_per_acre: 125000
+        no_cap_above_acres: 2.0
+        min_land_value: 1000
       deal_types:
         - "Vacant Land"
         - "Teardown Candidate"
@@ -49,8 +46,36 @@ clients:
       company: "Your Company"
       phone: "(314) XXX-XXXX"
       email: "you@yourcompany.com"
-
-  # ââ St. Charles template ââââââââââââââââââââââââââââââââââââââââââââââ
+  wentzville_builder:
+    name: "Wentzville Builder"
+    password: "wentzville2026"
+    role: "client"
+    color: "#047857"
+    criteria:
+      geography:
+        county: "St. Charles"
+        municipality: ""
+        school_districts: ["FORT ZUMWALT"]
+      lot:
+        min_acres: 0.25
+        min_lot_width_ft: 75
+      price:
+        max_land_value: 750000
+        max_per_acre: 120000
+        no_cap_above_acres: 2.0
+        min_land_value: 1000
+      deal_types:
+        - "Vacant Land"
+        - "Teardown Candidate"
+      scoring:
+        min_lead_score: 30
+        exclude_flood_zone: true
+    contact:
+      name: ""
+      company: ""
+      phone: ""
+      email: ""
+  # -- St. Charles template ------------------------------------------------
   # builder_stc:
   #   name: "O'Fallon Builder"
   #   password: "ofallon2024"
@@ -75,32 +100,3 @@ clients:
   #     scoring:
   #       min_lead_score: 30
   #       exclude_flood_zone: true
-  wentzville_builder:
-    name: "Wentzville Builder"
-    password: "wentzville2026"
-    role: "client"
-    color: "#047857"
-    criteria:
-      geography:
-        county: "St. Charles"
-        municipality: ""
-        school_districts: ["FORT ZUMWALT"]
-      lot:
-        min_acres: 0.25
-        min_lot_width_ft: 75
-      price:
-        max_land_value: 750000
-        max_per_acre: 120000
-        no_cap_above_acres: 2
-        min_land_value: 1000
-      deal_types:
-        - "Vacant Land"
-        - "Teardown Candidate"
-      scoring:
-        min_lead_score: 30
-        exclude_flood_zone: true
-    contact:
-        name: ""
-        company: ""
-        phone: ""
-        email: ""
